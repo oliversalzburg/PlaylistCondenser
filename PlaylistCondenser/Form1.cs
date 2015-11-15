@@ -76,7 +76,7 @@ namespace PlaylistCondenser {
           continue;
         }
 
-        string targetFilename = String.Format( "{0:00} - {1}.{2}", entryIndex, entry.Title, Path.GetExtension( entry.Location ) );
+        string targetFilename = String.Format( "{0:00} - {1}{2}", entryIndex, entry.Title, Path.GetExtension( entry.Location ) );
         targetFilename = Path.GetInvalidFileNameChars().Aggregate( targetFilename, ( current, c ) => current.Replace( c, '-' ) );
 
         File.Copy( entry.Location, Path.Combine( targetPath, targetFilename ) );
